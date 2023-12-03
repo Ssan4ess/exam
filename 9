@@ -1,0 +1,109 @@
+#include <iostream>
+
+#include <vector>
+
+#include <stdlib.h>
+
+#include <time.h>
+
+using namespace std;
+
+
+
+
+int main()
+
+{
+
+setlocale(LC_ALL, "rus");
+
+srand(time(NULL));
+
+int N;
+
+cout << "Введите количество элементов" << endl;
+
+cin >> N;
+
+vector <double> A(N);
+
+for (int i = 0; i < N; i++)
+
+{
+
+ A[i] = -100 + rand() % 201;
+
+}
+
+for (int i = 0; i < N; i++)
+
+{
+
+ cout << A[i] << " ";
+
+}
+
+double sum = 0, max =-1000,a=0,dob=1;
+
+
+for (int i = 0; i < N; i++)
+
+{
+
+ if (A[i] < 0) dob *= A[i];
+
+}
+
+cout << "Задача 1 "<< dob << endl;
+
+for (int i = 0; i < N; i++)
+
+{
+
+ if (max < A[i]) {
+
+  max = A[i];
+
+  a = i;
+
+ }
+
+}
+
+for (int i = 0; i < a; i++)
+
+{
+
+ if (A[i] > 0) {
+
+  sum += A[i];
+
+ }
+
+}
+
+cout << "Задача 2 " << sum << endl;
+
+for (int i = 0; i < N/2; i++)
+
+{
+
+ swap(A[i], A[N - 1-i]);
+
+}
+
+cout << "Задача 3" << endl;
+
+for (int i = 0; i < N; i++)
+
+{
+
+ cout << A[i] << " ";
+
+}
+
+system("pause");
+
+return 0;
+
+}
